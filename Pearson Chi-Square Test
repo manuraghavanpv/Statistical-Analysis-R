@@ -1,0 +1,22 @@
+# Step 1: Create a contingency table
+# Let's create a hypothetical dataset
+# Suppose we have 100 individuals: 60 smokers and 40 non-smokers
+# Among smokers, 30 have been diagnosed with lung cancer; among non-smokers, 10 have been diagnosed with lung cancer
+
+# Create a data frame with smoking status and lung cancer diagnosis
+data <- data.frame(
+  Smoking = c(rep("Smoker", 30), rep("Non-smoker", 10), rep("Smoker", 30), rep("Non-smoker", 30)),
+  Lung_Cancer = c(rep("Yes", 30), rep("Yes", 10), rep("No", 30), rep("No", 30))
+)
+
+# Create a contingency table
+contingency_table <- table(data$Smoking, data$Lung_Cancer)
+print(contingency_table)
+
+# Step 2: Conduct the chi-square test
+# Use the chisq.test() function to perform the chi-square test
+chi_sq_test <- chisq.test(contingency_table)
+
+# Step 3: Interpret the results
+# Print the results of the chi-square test
+print(chi_sq_test)
